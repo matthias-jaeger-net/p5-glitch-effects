@@ -7,14 +7,20 @@ Research on glitch effects in the context of a p5 sketch
 ![flowers](flowers.png)
 
 ```javascript
+// A variable to store image data
 let img;
 
+// Load the image data into the variable
 function preload() {
   img = loadImage('flowers.png');
 }
 
+// Use the image data
 function setup() {
-  createCanvas(800, 800);
+  // Same size as the image
+  createCanvas(800, 533);
+  // Render the image data with p5's image()
+  // https://p5js.org/reference/#/p5/image
   image(img, 0, 0);
 }
 ```
@@ -23,15 +29,22 @@ function setup() {
 ![flowers](flowers-glitch-simple.jpg)
 
 ```javascript
+// A variable to store image data
 let img;
 
+// Load the image data into the variable
 function preload() {
-  img = loadImage('flowers-glitch-simple.png');
+  img = loadImage('flowers.png');
 }
 
+// Use the image data
 function setup() {
+  // Same size as the image
   createCanvas(800, 533);
+  // Render the image
   image(img, 0, 0);
+  // Render 5000 smaller sections 
+  // of the image with a random offset on top
   for (let t = 5000; t > 0; t -= 1) {
     const x = random(width);
     const y = random(height);
@@ -41,7 +54,6 @@ function setup() {
     const g = img.get(x, y, w, h);
     image(g, x + ox, y);
   }
-  save('flowers-glitch-simple.jpg');
 }
 ```
 
@@ -72,7 +84,6 @@ function setup() {
       point(x, y);
     }
   }
-  save('flowers-glitch-intermediate.jpg');
 }
 ```
 
@@ -118,6 +129,5 @@ function setup() {
     const g = img.get(x, y, w, h);
     image(effect(g), x + ox, y);
   }
-
-  save('flowers-glitch-advanced.jpg');
 }
+```
