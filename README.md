@@ -163,7 +163,7 @@ function setup() {
   // Render the image
   image(img, 0, 0);
   
-  // 
+   // Render smaller sections of the image with a random offset on top
   for (let t = 0; t < 550; t += 1) {
     // Random position 
     const x = random(width);
