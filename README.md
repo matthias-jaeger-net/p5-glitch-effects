@@ -75,3 +75,49 @@ function setup() {
   save('flowers-glitch-intermediate.jpg');
 }
 ```
+
+## Using the image function creatively
+![flowers](flowers-glitch-advanced.jpg)
+
+```javascript
+let img;
+
+function effect(buffer) {
+  const gfx = createGraphics(buffer.width, buffer.height);
+  gfx.loadPixels();
+  for (let x = 0; x < gfx.width; x += 1) {
+    const colors = [];
+    for (let y = 0; y < buffer.height; y += 1) {
+      colors.push(buffer.get(x, y));
+    }
+    if (random(0, 1) > 0.5) {
+      if (random(0, 1) > 0.5) { colors.sort(); }
+      if (random(0, 1) > 0.5) { colors.reverse(); }
+    }
+    for (let y = 0; y < gfx.height; y += 1) {
+      gfx.set(x, y, colors[y]);
+    }
+  }
+  gfx.updatePixels();
+  return gfx;
+}
+
+function preload() {
+  img = loadImage(name + ext);
+}
+
+function setup() {
+  createCanvas(800, 533);
+  image(img, 0, 0);
+  for (let t = 0; t < 550; t += 1) {
+    const x = random(width);
+    const y = random(height);
+    const ox = random(-20, 20);
+    const w = floor(random(1, 100));
+    const h = floor(random(1, 100));
+    const g = img.get(x, y, w, h);
+    image(effect(g), x + ox, y);
+  }
+
+  save('flowers-glitch-advanced.jpg');
+}
