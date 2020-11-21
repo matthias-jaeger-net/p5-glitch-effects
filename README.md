@@ -44,3 +44,29 @@ function setup() {
   save('flowers-glitch-simple.jpg');
 }
 ```
+
+## Using the image function creatively
+![flowers](flowers-glitch-simple.jpg)
+
+```javascript
+let img;
+
+function preload() {
+  img = loadImage('flowers-glitch-simple.png');
+}
+
+function setup() {
+  createCanvas(800, 533);
+  image(img, 0, 0);
+  for (let t = 5000; t > 0; t -= 1) {
+    const x = random(width);
+    const y = random(height);
+    const ox = random(-20, 20);
+    const w = floor(random(1, 100));
+    const h = floor(random(1, 100));
+    const g = img.get(x, y, w, h);
+    image(g, x + ox, y);
+  }
+  save('flowers-glitch-simple.jpg');
+}
+```
