@@ -5,6 +5,7 @@ Research on glitch effects in the context of a p5 sketch
 
 ### Input image
 ![flowers](flowers.png)
+https://unsplash.com/photos/YDNvydD1jAY
 
 ```javascript
 let img;
@@ -24,7 +25,7 @@ function setup() {
 let img;
 
 function preload() {
-  img = loadImage('flowers.png');
+  img = loadImage('flowers-glitch-simple.png');
 }
 
 function setup() {
