@@ -4,7 +4,7 @@ Research on glitch effects in the context of a p5 sketch
 ## Basic structure
 
 ### Input image
-[flowers]('flowers.png')
+[flowers](flowers.png)
 
 ```javascript
 let img;
