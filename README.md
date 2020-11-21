@@ -4,8 +4,8 @@ Research on glitch effects in the context of a p5 sketch
 ## Basic structure
 
 ### Input image
+I'm using this beautiful still life as an example: https://unsplash.com/photos/YDNvydD1jAY
 ![flowers](flowers.png)
-https://unsplash.com/photos/YDNvydD1jAY
 
 ```javascript
 let img;
