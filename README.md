@@ -20,6 +20,8 @@ function setup() {
 ```
 
 ## Using the image function creatively
+![flowers](flowers-glitch-simple.jpg)
+
 ```javascript
 let img;
 
